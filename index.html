@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Hakimos Additive Manufacturing provides FDM 3D printing, engineering design, prototyping, production, and additive manufacturing consulting services.">
+  <link rel="canonical" href="https://hakimosam.com/">
+  <link rel="icon" type="image/jpeg" href="hakimos-logo.jpeg">
   <title>Hakimos Additive Manufacturing</title>
   <style>
     :root {
@@ -51,12 +53,26 @@
     }
     .brand {
       text-decoration:none;
+      display:flex;
+      align-items:center;
+      gap:12px;
       font-weight:900;
       letter-spacing:.4px;
-      font-size:20px;
+      font-size:18px;
       white-space:nowrap;
     }
-    .brand span { color:var(--accent); }
+    .brand-logo {
+      width:58px;
+      height:58px;
+      object-fit:cover;
+      border-radius:12px;
+      background:#fff;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .brand-name {
+      line-height:1.15;
+    }
+    .brand-name span { color:var(--accent); }
     .navlinks {
       display:flex;
       align-items:center;
@@ -303,17 +319,32 @@
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hakimos Additive Manufacturing",
+    "alternateName": "Hakimos AM",
+    "url": "https://hakimosam.com/",
+    "logo": "https://hakimosam.com/hakimos-logo.jpeg",
+    "email": "quotes@hakimosam.com",
+    "telephone": "+1-504-516-5265"
+  }
+  </script>
 </head>
 <body>
   <nav>
     <div class="wrap">
-      <a class="brand" href="#top">HAKIMOS <span>AM</span></a>
+      <a class="brand" href="#top" aria-label="Hakimos Additive Manufacturing home">
+        <img class="brand-logo" src="hakimos-logo.jpeg" alt="Hakimos Additive Manufacturing logo">
+        <span class="brand-name">HAKIMOS <span>AM</span></span>
+      </a>
       <div class="navlinks">
         <a href="#services">Services</a>
         <a href="#fdm">FDM</a>
         <a href="#design">Design</a>
         <a href="#materials">Materials</a>
-        <a href="#consulting">Consulting</a>
         <a href="#about">About Us</a>
         <a class="btn" href="#quote">Request a Quote</a>
       </div>
