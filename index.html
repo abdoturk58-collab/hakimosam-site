@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hakimos Additive Manufacturing provides FDM 3D printing, engineering design, prototyping, production, and additive manufacturing consulting services.">
+  <link rel="canonical" href="https://hakimosam.com/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <title>Hakimos Additive Manufacturing | FDM 3D Printing & Design</title>
+  <style>
+    :root {
+      --bg:#08111f;
+      --panel:#101a2d;
+      --panel2:#0c1526;
+      --text:#f4f7fb;
+      --muted:#b5c2d6;
+      --accent:#39c3ff;
+      --line:#24324d;
+      --max:1200px;
+      --radius:20px;
+      --shadow:0 20px 55px rgba(0,0,0,.28);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(57,195,255,.12), transparent 26%),
+        radial-gradient(circle at 10% 80%, rgba(57,195,255,.06), transparent 20%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a { color:inherit; }
+    img { display:block; max-width:100%; }
+    .wrap { max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+    nav {
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(8,17,31,.93);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    nav .wrap {
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand {
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:.4px;
+      font-size:18px;
+      white-space:nowrap;
+    }
+    .brand-logo {
+      width:58px;
+      height:58px;
+      object-fit:cover;
+      border-radius:12px;
+      background:#fff;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .brand-name {
+      line-height:1.15;
+    }
+    .brand-name span { color:var(--accent); }
+    .navlinks {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navlinks a {
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .navlinks a:hover { color:var(--text); }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#06111b !important;
+      text-decoration:none;
+      font-weight:800;
+      box-shadow:0 10px 28px rgba(57,195,255,.20);
+    }
+    .btn.secondary {
+      background:transparent;
+      color:var(--text) !important;
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+
+    header {
+      padding:72px 0 60px;
+    }
+    .hero {
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+      gap:42px;
+      align-items:center;
+    }
+    .eyebrow {
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:13px;
+      font-weight:800;
+    }
+    h1 {
+      font-size:clamp(42px,6vw,68px);
+      line-height:1.04;
+      margin:14px 0 20px;
+      letter-spacing:-1.5px;
+      max-width:760px;
+    }
+    .lead {
+      color:var(--muted);
+      font-size:clamp(18px,2vw,23px);
+      max-width:760px;
+      margin:0 0 18px;
+    }
+    .hero-actions {
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+    .hero-showcase {
+      position:relative;
+      min-height:560px;
+      background:linear-gradient(180deg, rgba(16,26,45,.95), rgba(9,17,31,.98));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      padding:24px;
+    }
+    .hero-showcase::before {
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      right:-80px;
+      top:-70px;
+      background:radial-gradient(circle, rgba(57,195,255,.28), transparent 70%);
+      pointer-events:none;
+    }
+    .hero-img {
+      position:absolute;
+      overflow:hidden;
+      border-radius:22px;
+      box-shadow:0 18px 44px rgba(0,0,0,.30);
+      border:1px solid rgba(255,255,255,.10);
+      background:#f5f5f5;
+    }
+    .hero-img img { width:100%; height:100%; object-fit:cover; }
+    .hero-img.one {
+      left:24px;
+      right:115px;
+      top:28px;
+      height:305px;
+      transform:rotate(-3deg);
+    }
+    .hero-img.two {
+      width:310px;
+      right:20px;
+      bottom:26px;
+      height:245px;
+      transform:rotate(4deg);
+    }
+    .hero-tag {
+      position:absolute;
+      left:16px;
+      bottom:16px;
+      background:rgba(8,17,31,.86);
+      color:white;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      padding:9px 12px;
+      font-size:13px;
+    }
+
+    section {
+      padding:54px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+    h2 {
+      font-size:clamp(31px,4vw,45px);
+      margin:0 0 14px;
+      line-height:1.15;
+    }
+    h3 {
+      margin:0 0 10px;
+      font-size:22px;
+      line-height:1.25;
+    }
+    p { margin:0 0 16px; }
+    .section-intro {
+      color:var(--muted);
+      max-width:860px;
+      margin-bottom:34px;
+    }
+    .grid {
+      display:grid;
+      gap:18px;
+    }
+    .g2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .g3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .g4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .card {
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.16);
+    }
+    .card p, .muted { color:var(--muted); }
+
+
+    .service-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:18px;
+    }
+    .service-card,
+    .why-card,
+    .process-card {
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.16);
+    }
+    .service-card h3,
+    .why-card h3,
+    .process-card h3 {
+      margin-bottom:8px;
+    }
+    .service-card p,
+    .why-card p,
+    .process-card p {
+      color:var(--muted);
+      margin:0;
+    }
+    .why-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .why-mark {
+      width:38px;
+      height:38px;
+      border-radius:11px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:16px;
+      background:rgba(57,195,255,.12);
+      border:1px solid rgba(57,195,255,.25);
+      color:var(--accent);
+      font-weight:900;
+    }
+    .process-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:18px;
+      counter-reset:steps;
+    }
+    .process-card {
+      position:relative;
+      padding-top:64px;
+    }
+    .process-card::before {
+      counter-increment:steps;
+      content:counter(steps);
+      position:absolute;
+      top:20px;
+      left:24px;
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--accent);
+      color:#06111b;
+      font-weight:900;
+    }
+    .section-kicker {
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:1.7px;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .image-section {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);
+      gap:28px;
+      align-items:center;
+    }
+    .marketing-img {
+      overflow:hidden;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.10);
+      background:#f5f5f5;
+      box-shadow:var(--shadow);
+    }
+    .marketing-img img {
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+    }
+
+    .materials {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:14px;
+    }
+    .material {
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:16px;
+      padding:20px;
+    }
+    .material p { color:var(--muted); margin:0; }
+
+    .about-box, .quote-box {
+      background:linear-gradient(135deg,#102442,#0d182c);
+      border:1px solid #2a4568;
+      border-radius:24px;
+      padding:32px;
+      box-shadow:var(--shadow);
+    }
+    .quote-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:30px;
+      align-items:start;
+    }
+    .contact {
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+    .contact a {
+      text-decoration:none;
+      color:var(--text);
+    }
+    .contact a:hover { color:var(--accent); }
+    .plain-list {
+      margin:0;
+      padding-left:22px;
+      color:var(--muted);
+    }
+    .plain-list li { margin:7px 0; }
+
+    footer {
+      padding:34px 0;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+    footer .wrap {
+      display:grid;
+      gap:6px;
+    }
+    footer .wrap div:first-child {
+      color:var(--text);
+      font-weight:700;
+    }
+
+    @media(max-width:1050px) {
+      .hero, .image-section, .quote-grid { grid-template-columns:1fr; }
+      .g4 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .g3 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .materials { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .why-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .process-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media(max-width:760px) {
+      .navlinks a:not(.btn) { display:none; }
+      header { padding:72px 0 62px; }
+      .g4, .g3, .g2, .materials, .why-grid, .process-grid { grid-template-columns:1fr; }
+      .hero-showcase { min-height:700px; }
+      .hero-img.one {
+        left:20px; right:20px; top:20px; height:290px; transform:none;
+      }
+      .hero-img.two {
+        left:45px; right:45px; width:auto; bottom:30px; height:300px; transform:none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hakimos Additive Manufacturing",
+    "alternateName": "Hakimos AM",
+    "url": "https://hakimosam.com/",
+    "logo": "https://hakimosam.com/hakimos-logo.jpeg",
+    "email": "quotes@hakimosam.com",
+    "telephone": "+1-504-516-5265",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stow",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Hakimos Additive Manufacturing home">
+        <img class="brand-logo" src="hakimos-logo.jpeg" alt="Hakimos Additive Manufacturing logo">
+        <span class="brand-name">HAKIMOS <span>AM</span></span>
+      </a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#materials">Materials</a>
+        <a href="#about">About</a>
+        <a href="#quote">Contact</a>
+        <a class="btn" href="#quote">Request a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Hakimos Additive Manufacturing</div>
+        <h1>From Prototype to Production</h1>
+        <p class="lead">
+          Professional FDM 3D printing, engineering design, prototyping, production, and additive manufacturing consulting.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="mailto:quotes@hakimosam.com?subject=Quote%20Request">Request a Quote</a>
+        </div>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="hero-img one">
+          <img src="flexible-tpu.png" alt="Colorful flexible TPU 3D printed lattice component">
+          <div class="hero-tag">Flexible TPU and multi-color FDM</div>
+        </div>
+        <div class="hero-img two">
+          <img src="rigid-bracket.png" alt="Rigid black FDM 3D printed functional bracket">
+          <div class="hero-tag">Rigid functional FDM part</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-kicker">Capabilities</div>
+      <h2>Our Services</h2>
+      <p class="section-intro">
+        Engineering-focused additive manufacturing support from initial concept through finished production.
+      </p>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>FDM 3D Printing</h3>
+          <p>Functional prototypes, custom parts, fixtures, replacement components, and end-use products in rigid and flexible materials.</p>
+        </div>
+        <div class="service-card">
+          <h3>Design & CAD</h3>
+          <p>New part design, CAD modification, dimensional changes, feature additions, and design for additive manufacturing.</p>
+        </div>
+        <div class="service-card">
+          <h3>Prototyping</h3>
+          <p>Fast physical prototypes to evaluate fit, form, function, geometry, material behavior, and design changes.</p>
+        </div>
+        <div class="service-card">
+          <h3>Production</h3>
+          <p>Support for individual custom parts and larger production quantities based on geometry, material, quality, and schedule.</p>
+        </div>
+        <div class="service-card">
+          <h3>Consulting</h3>
+          <p>Material selection, process improvement, troubleshooting, workflow development, quality support, and technical training.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fdm">
+    <div class="wrap">
+      <div class="section-kicker">Manufacturing</div>
+      <h2>FDM 3D Printing</h2>
+      <div class="grid g2">
+        <div class="card">
+          <h3>Functional Parts</h3>
+          <p>FDM turns digital designs into physical thermoplastic components for brackets, housings, fixtures, manufacturing aids, replacement parts, and custom products.</p>
+        </div>
+        <div class="card">
+          <h3>Flexible & Rigid Options</h3>
+          <p>Choose from rigid engineering plastics and flexible TPU depending on strength, durability, environmental exposure, appearance, and application requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="design">
+    <div class="wrap">
+      <div class="section-kicker">Engineering Support</div>
+      <h2>Design Services</h2>
+      <div class="grid g2">
+        <div class="card">
+          <h3>Starting From an Idea</h3>
+          <p>We can develop a manufacturable 3D model from a sketch, photograph, dimensions, an existing component, or a product concept.</p>
+        </div>
+        <div class="card">
+          <h3>Improving Existing CAD</h3>
+          <p>We can modify geometry, dimensions, holes, mounting features, text, logos, and print-oriented details to improve manufacturability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="wrap">
+      <h2>Materials</h2>
+      <p class="section-intro">
+        We offer several material options depending on the strength, flexibility, temperature resistance, environmental exposure, appearance, and intended application of the part.
+      </p>
+      <div class="materials">
+        <div class="material"><h3>PLA</h3><p>PLA is a reliable general-purpose material suitable for prototypes, models, display parts, educational models, fixtures, and many standard applications.</p></div>
+        <div class="material"><h3>PETG</h3><p>PETG provides good strength, toughness, and moisture resistance. It is suitable for functional components, brackets, housings, fixtures, prototypes, and many end-use applications.</p></div>
+        <div class="material"><h3>ABS</h3><p>ABS is a durable engineering thermoplastic with good toughness and improved temperature resistance. It can be used for functional components, mechanical parts, housings, fixtures, and other applications requiring increased durability.</p></div>
+        <div class="material"><h3>ASA</h3><p>ASA provides good mechanical properties along with excellent UV and weather resistance. It is particularly useful for outdoor parts and components exposed to sunlight or environmental conditions.</p></div>
+        <div class="material"><h3>TPU</h3><p>TPU is a flexible, rubber-like thermoplastic suitable for parts that need to bend, compress, cushion, or absorb impact. It can be used for grips, cushions, pads, protective components, wearable products, flexible joints, impact-absorbing structures, lattice structures, soft interfaces, ergonomic products, flexible covers, and other custom flexible components.</p></div>
+      </div>
+      <p class="section-intro" style="margin-top:24px;">Additional materials may be available depending on the requirements of the project.</p>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-kicker">Why Hakimos</div>
+      <h2>Engineering Experience Behind Every Part</h2>
+      <p class="section-intro">
+        We combine hands-on additive manufacturing experience with engineering, quality, and production-focused decision making.
+      </p>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-mark">10+</div><h3>Years of Experience</h3><p>Approximately 10 years of hands-on experience across additive manufacturing, research, manufacturing, and engineering applications.</p></div>
+        <div class="why-card"><div class="why-mark">E</div><h3>Engineering Focus</h3><p>Projects are approached with attention to function, manufacturability, material behavior, dimensions, and application requirements.</p></div>
+        <div class="why-card"><div class="why-mark">D</div><h3>Design Through Production</h3><p>Support can begin with an idea or CAD file and continue through prototyping, revision, and final manufacturing.</p></div>
+        <div class="why-card"><div class="why-mark">M</div><h3>Rigid & Flexible Materials</h3><p>Material options include rigid thermoplastics and flexible TPU for a broad range of functional and product applications.</p></div>
+        <div class="why-card"><div class="why-mark">P</div><h3>Production Support</h3><p>We support individual custom components as well as larger production quantities depending on project requirements.</p></div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-kicker">Simple Process</div>
+      <h2>How It Works</h2>
+      <p class="section-intro">A straightforward path from your idea or file to a finished part.</p>
+      <div class="process-grid">
+        <div class="process-card">
+          <h3>Send Your File or Idea</h3>
+          <p>Share a 3D model, drawing, sketch, photos, dimensions, or a description of what you need.</p>
+        </div>
+        <div class="process-card">
+          <h3>Review & Quote</h3>
+          <p>We review geometry, quantity, material, intended use, and schedule to determine an appropriate approach and quote.</p>
+        </div>
+        <div class="process-card">
+          <h3>Manufacture</h3>
+          <p>Your part is prepared and produced using the selected FDM material and manufacturing plan.</p>
+        </div>
+        <div class="process-card">
+          <h3>Quality Inspection</h3>
+          <p>Finished parts are checked for overall print quality, key dimensions, visible defects, and project requirements before release.</p>
+        </div>
+        <div class="process-card">
+          <h3>Completion</h3>
+          <p>Approved parts are prepared for delivery or pickup based on the project arrangement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="about">
+    <div class="wrap">
+      <div class="section-kicker">About</div>
+      <h2>About Hakimos Additive Manufacturing</h2>
+      <div class="about-box">
+        <p>Hakimos Additive Manufacturing provides professional FDM 3D printing, engineering design, prototyping, production, and additive manufacturing consulting services.</p>
+        <p>The company is led by an engineer with approximately 10 years of hands-on additive manufacturing experience and a background in industrial and systems engineering, quality, research, and advanced manufacturing.</p>
+        <p>Our goal is to help customers move efficiently from an idea or digital design to a finished physical product with practical support in design, material selection, manufacturability, and production planning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote">
+    <div class="wrap">
+      <h2>Request a Quote</h2>
+      <div class="quote-box quote-grid">
+        <div>
+          <p>Have a part or product you need designed or manufactured?</p>
+          <p>Please send us your 3D model if available, quantity, preferred material, preferred color, approximate dimensions, intended application, and desired completion date.</p>
+          <p>If you do not have a 3D model, you can send us a sketch, dimensions, photographs, an existing component, or a description of what you need. We can discuss available design options.</p>
+          <p>Not sure which material, design, or manufacturing approach is appropriate? Contact us with your project requirements and we can help identify a suitable solution.</p>
+        </div>
+        <div>
+          <h3>Contact Hakimos Additive Manufacturing</h3>
+          <div class="contact">
+            <a href="mailto:quotes@hakimosam.com">Email: quotes@hakimosam.com</a>
+            <a href="tel:+15045165265">Phone: +1 504-516-5265</a>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:quotes@hakimosam.com?subject=Quote%20Request">Email for a Quote</a>
+            <a class="btn secondary" href="tel:+15045165265">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>Hakimos Additive Manufacturing</div>
+      <div>Stow, Ohio, USA</div>
+      <div>© 2026 Hakimos Additive Manufacturing. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
